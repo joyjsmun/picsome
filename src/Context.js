@@ -10,8 +10,10 @@ function ContextProvider({children}){
     useEffect(()=>{
         fetch("https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json")
         .then(res => res.json())
-        .then(data => console.log(data) )
+        .then(data => setAllPhotos(data))
     },[])
+
+    console.log(allPhotos)
     return(
         <Context.Provider value={{allPhotos}}>
             {children}
