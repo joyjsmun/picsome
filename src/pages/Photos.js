@@ -11,10 +11,12 @@ function Photos() {
 
     return (
             <main className="photos">
-                <h1>{imageElement}</h1>
+                {imageElement}
             </main>
     
     )
 }
 
 export default Photos
+
+
