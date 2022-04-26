@@ -1,7 +1,7 @@
-function Image({className}){
+function Image({className,img}){
     return(
         <div className={`${className} image-container`}>
-            <img src={""} className="image-grid"  />
+            <img src={img.url} className="image-grid"  />
         </div>       
     )
 }
