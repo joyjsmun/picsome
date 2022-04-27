@@ -12,16 +12,16 @@ On the Image component, track the hover state
 import React, { useState } from "react"
 
 function Image({className, img}) {
-    const [hovered,setHovered] = useState(true)
+    const [hovered,setHovered] = useState(false)
 
     function handleHover(){
         setHovered(prev => !prev)
-        console.log(hovered," hovered")
+        console.log(hovered)
     }
 
     return (
         <div className={`${className} image-container`}>
-            <img onMouseOver={handleHover} src={img.url} className="image-grid"/>
+            <img onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} src={img.url} className="image-grid"/>
         </div>
     )
 }
