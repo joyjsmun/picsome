@@ -16,7 +16,7 @@ function Image({className, img}) {
 
     function handleHover(){
         setHovered(prev => !prev)
-        console.log(hovered)
+        console.log(hovered," hovered")
     }
 
     return (
