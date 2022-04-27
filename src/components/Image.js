@@ -9,9 +9,10 @@ On the Image component, track the hover state
 
 
 
-import React from "react"
+import React, { useState } from "react"
 
 function Image({className, img}) {
+    const [hovered,setHovered] = useState(true)
     return (
         <div className={`${className} image-container`}>
             <img src={img.url} className="image-grid"/>
