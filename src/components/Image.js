@@ -13,9 +13,15 @@ import React, { useState } from "react"
 
 function Image({className, img}) {
     const [hovered,setHovered] = useState(true)
+
+    function handleHover(){
+        setHovered(prev => !prev)
+        console.log(hovered)
+    }
+
     return (
         <div className={`${className} image-container`}>
-            <img src={img.url} className="image-grid"/>
+            <img onMouseOver={handleHover} src={img.url} className="image-grid"/>
         </div>
     )
 }
