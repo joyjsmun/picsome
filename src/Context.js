@@ -3,8 +3,6 @@ import React,{createContext,useState,useEffect} from "react"
 
 const Context = createContext()
 
-
-
 function ContextProvider({children}){
     const [allPhotos,setAllPhotos] = useState([])
     const [cartItems,setCartItems] = useState([])
