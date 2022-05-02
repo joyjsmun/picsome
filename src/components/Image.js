@@ -1,5 +1,5 @@
 import { Context } from "../Context"
-import PropTypes from "prop-types"
+import PropTypes, { element } from "prop-types"
 
 import React, { useState,useContext } from "react"
 
@@ -8,12 +8,12 @@ function Image({className, img}) {
     const [hovered,setHovered] = useState(false)
     const heartIcon = hovered && <i className={img.isFavorite === true ? "ri-heart-fill favorite" : "ri-heart-line favorite"} onClick={() => toggleFavorite(img.id)}></i> 
     function cartIcon(){
-        const cartItem = cartItems.find(element => element.id === img.id )
-            if(cartItem){
-                return hovered && <i className="ri-add-circle-fill cart"></i>
-            }else if(hovered){
-                return hovered && <i className="ri-add-circle-line cart" onClick={() => addItemToCart(img)}></i>
-            }
+        const insideCartItem = cartItems.find(element => element.id === img.id)
+        if(insideCartItem){
+            return hovered && <i className="ri-add-circle-fill cart" onClick={() => addItemToCart(img)}></i>
+        }else if(hovered){
+            return hovered && <i className="ri-add-circle-line cart" onClick={() => addItemToCart(img)}></i>
+        }
     }
     //  hovered && <i className="ri-add-circle-line cart" onClick={() => addItemToCart(img)}></i>
     
