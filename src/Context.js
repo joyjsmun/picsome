@@ -23,7 +23,7 @@ function ContextProvider({children}){
        setCartItems(prevItems => prevItems.filter(item => item.id !== id))
    }
 
-    console.log(cartItems)
+ 
 
     function toggleFavorite(id){
         const updatedPhoto = allPhotos.map(photo => {
