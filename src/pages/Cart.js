@@ -2,14 +2,15 @@
 /*
 # Challenge
 
-Calculate the total cost of the items in the cart and display it on the Cart page
+1. Only render the "Place Order" button if there are items in the cart
 
-1. Usually the item in the database will have it's own cost saved, but we're assuming every item we sell costs $5.99, so you can just hard code that cost in
-2. To very easily display the total cost in US dollars (or whatever currency you want), use the following:
+2. Change the trash icon to a filled-in trash icon when hovering over it
 
-`<number>.toLocaleString("en-US", {style: "currency", currency: "USD"})`
+Filled trash icon to use when hovering:
+<i className="ri-delete-bin-fill"></i>
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
+Empty trash icon to use when NOT hovering:
+<i className="ri-delete-bin-line"></i>
 
  */
 
@@ -28,11 +29,16 @@ function Cart() {
     const totalCost = cartElements.length*5.99
 
     const handleOrder =  () => {
+        if(cartElements.length > 0){
        setTimeout(() => {
            setText("Ordering...")
            console.log("Order Placed!")
            emptyCart()
        },[3000])
+    }else{
+        document.getElementsByTagName("button").disabled = true
+        console.log("disable")
+    }
        
     }
     return (
