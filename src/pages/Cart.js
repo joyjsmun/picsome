@@ -15,7 +15,7 @@ import { Context } from "../Context"
 import CartItem from "../components/CartItem"
 
 function Cart() {
-    const {cartItems} = useContext(Context)
+    const {cartItems,emptyCart} = useContext(Context)
     const [text,setText] = useState("Place Order")
     const cartElements = cartItems.map(item => (
         <CartItem item={item} key={item.key} />
@@ -24,7 +24,8 @@ function Cart() {
     const handleOrder =  () => {
        setTimeout(() => {
            setText("Ordering...")
-           console.log("Order Placed")
+           console.log("Order Placed!")
+           emptyCart()
        },[3000])
        
     }

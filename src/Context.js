@@ -23,6 +23,10 @@ function ContextProvider({children}){
        setCartItems(prevItems => prevItems.filter(item => item.id !== id))
    }
 
+   function emptyCart(){
+       setCartItems([])
+   }
+
  
 
     function toggleFavorite(id){
@@ -36,7 +40,7 @@ function ContextProvider({children}){
     }
 
     return(
-        <Context.Provider value={{allPhotos,cartItems,toggleFavorite,addItemToCart,removeItemToCart}}>
+        <Context.Provider value={{allPhotos,cartItems,toggleFavorite,addItemToCart,removeItemToCart,emptyCart}}>
             {children}
         </Context.Provider>
     )
