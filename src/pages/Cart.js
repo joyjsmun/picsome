@@ -37,7 +37,7 @@ function Cart() {
        },[3000])
     }else{
         document.getElementsByTagName("button").disabled = true
-        console.log("disable")
+        console.log("disable BUTTON - EMPTY CART")
     }
        
     }
