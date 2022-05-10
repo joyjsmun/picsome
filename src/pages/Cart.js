@@ -1,15 +1,19 @@
+
 /*
 # Challenge
 
-Let our user place their order!
+Calculate the total cost of the items in the cart and display it on the Cart page
 
-Clicking the "Place Order" button should:
-1. Change the text to "Ordering..."
-2. Timeout for 3 seconds (to simulate an order being placed)
-3. Log "Order placed!" to the console
-4. Empty out the cart
+1. Usually the item in the database will have it's own cost saved, but we're assuming every item we sell costs $5.99, so you can just hard code that cost in
+2. To very easily display the total cost in US dollars (or whatever currency you want), use the following:
+
+`<number>.toLocaleString("en-US", {style: "currency", currency: "USD"})`
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
 
  */
+
+
 import React, { useContext, useState } from "react"
 import { Context } from "../Context"
 import CartItem from "../components/CartItem"
@@ -21,6 +25,8 @@ function Cart() {
         <CartItem item={item} key={item.key} />
     ))
 
+    const totalCost = cartElements.length*5.99
+
     const handleOrder =  () => {
        setTimeout(() => {
            setText("Ordering...")
@@ -31,12 +37,14 @@ function Cart() {
     }
     return (
         <main className="cart-page">
-            <h1>Check out</h1>´
-            <p className="total-cost">Total: </p>
+            <h1>Check out</h1>
+            
             <div className="order-button">
                 <button onClick={handleOrder}>{text}</button>
             </div>
             {cartElements}
+            <p className="total-cost"> Total: {`${totalCost.toLocaleString("en-US", {style: "currency", currency: 'USD' })}`}</p>
+
         </main>
     )
 }
