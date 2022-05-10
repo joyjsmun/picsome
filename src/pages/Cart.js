@@ -26,7 +26,8 @@ function Cart() {
         <CartItem item={item} key={item.key} />
     ))
 
-    const totalCost = cartElements.length*5.99
+    const totalCost = cartElements.length*5.99;
+ 
 
     const handleOrder =  () => {
         if(cartElements.length > 0){
@@ -35,21 +36,22 @@ function Cart() {
            console.log("Order Placed!")
            emptyCart()
        },[3000])
-    }else{
-        document.getElementsByTagName("button").disabled = true
-        console.log("disable BUTTON - EMPTY CART")
     }
        
     }
     return (
         <main className="cart-page">
             <h1>Check out</h1>
-            
-            <div className="order-button">
-                <button onClick={handleOrder}>{text}</button>
-            </div>
             {cartElements}
             <p className="total-cost"> Total: {`${totalCost.toLocaleString("en-US", {style: "currency", currency: 'USD' })}`}</p>
+
+            {cartElements.length > 0 ?
+        <div className="order-button">
+        <button onClick={handleOrder}>{text}</button>
+    </div>    
+    : 
+    <h1>You have no items in your cart</h1>
+        }
 
         </main>
     )
