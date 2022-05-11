@@ -1,7 +1,6 @@
 
 import { Context } from "../Context"
 import PropTypes, { element } from "prop-types"
-
 import React, { useState,useContext } from "react"
 
 function Image({className, img}) {
